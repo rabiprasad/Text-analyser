@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="./index.css">
+      <link rel="icon" href="./resources/adversal-brands.svg">
+      <script src="https://kit.fontawesome.com/e79691ec58.js" crossorigin="anonymous"></script>
+      <script src="./index.js" defer></script>
+      <title>Text Analyser</title>
+   </head>
+   <body>
+      <!-- 1 Home page -->
+      <header class="header-container">
+         <!--1.1 heading -->
+         <div class="heading">
+            <h1><i class="fab fa-adversal"></i> Text buddy</h1>
+            <p>know more about your text!</p>
+         </div>
+         <!-- 1.2 text container-->
+         <div class="wrap-container">
+            <!-- form start -->
+            <form action="" class="text-container">
+            <!-- 1.2.1 text-input -->
+            <div class="text-input">
+                <textarea name="text-area" spellcheck="false" id="text-area" cols="" rows="" placeholder="Input your text here :)"></textarea>
+            </div>
+            <!-- 1.2.2 operation -->
+            <div class="operations">
+                <p>operations</p>
+                <ul>
+                    <li><input type="checkbox" name="basic-check" id="basic-analyses">Basic information</li>
+                    <li><input type="checkbox" name="spelling-check" id="spelling-check">spelling Check</li>
+                    <li><input type="checkbox" name="sentiment-check" id="sentiment-analyses">sentiment Analyses</li>
+                    <li><input type="checkbox" name="get-summary" id="get-summary">get summary</li>
+                    <div class="btn">
+                    <button type="submit" class="submit-btn">Analyse</button>
+                    <button type="reset" class="clear-btn">Clear</button>
+                    </div>
+                </ul>
+            </div>
+            </form>
+            <!-- form end -->   
+         </div>
+      </header>
+      
+      <!-- operation results -->
+      <div class="results">
+         <!-- Basic information -->
+         <section class="basic-info-container ">
+            <h1>Basic information</h1>
+            <ul>
+               <!-- list elements inserted by javascript-->
+            </ul>
+         </section>
+         <br>
+         <!-- sentiment analysis -->
+         <section class="sentiment-container ">
+            <h1>Sentiment Analyse</h1>
+            <p>Probability</p>
+            <ul>
+               <li id="positive" class="oval">Positive: <span></span></li>
+               <li id="neutral" class="oval">Neutral: <span></span></li>
+               <li id="negative" class="oval">Negative: <span></span></li>
+            </ul>
+         </section>
+         <br>
+         <!-- spelling check -->
+         <section class="spelling-container ">
+            <h1>Spelling Check</h1>
+            <p>Spelling Error Count: <span></span></p>
+            <br>
+            <p>Incorrect Text</p>
+            <fieldset id="incorrect-text"></fieldset>
+            <p>Correct Text</p>
+            <fieldset id="correct-text"></fieldset>
+         </section>
+         <br>
+         <!-- summary container -->
+         <section class="summary-container">
+            <h1>Summary</h1>
+            <fieldset id="summary-field">
+               <ul>
+                  <!-- list item appended by javascript -->
+               </ul>
+            </fieldset>
+         </section>
+      </div>
+   </body>
+</html>
