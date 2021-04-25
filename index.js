@@ -136,14 +136,14 @@ function spellingCheck(text){
         const responseData = getErrorSuggestions(data);
         const  errorWords = responseData[0];
         const  suggestions = responseData[1];
-        const textArray = text.split(" ");
-        displayResult(textArray,errorWords,suggestions);
+        const positions = responseData[2];
+        displayResult(text,errorWords,suggestions,positions);
         }
         else{
             document.querySelector('.spelling-container #incorrect-text').textContent = text;
             document.querySelector('.spelling-container #correct-text').textContent = text;
         }
-        
+
     })
     .catch(err =>{
         console.log("Error: ",err);
@@ -156,32 +156,31 @@ function spellingCheck(text){
     function getErrorSuggestions(data){    //returns array of error words and suggestions
         const error = [];
         const suggestions = [];
-        console.log(data);
+        const positions =[];
         let temp = data.elements[0].errors;
         temp.forEach(e => {
+            positions.push(e.position);
             error.push(e.word);
             suggestions.push(e.suggestions[0]);
         });
-        return [error,suggestions];
+        return [error,suggestions,positions];
     }
 
-    function displayResult(textArray,errorWords,suggestions){
-        let tempError = [];
-        let tempCorrect = [];
-        textArray.forEach(e => {
-            const index = errorWords.indexOf(e);
-            if(index !== -1){
-                tempError.push(`<span class="incorrect-word">${errorWords[index]}</span>`);
-                tempCorrect.push(`<span class="correct-word">${suggestions[index]}</span>`);
+    function displayResult(text,errorWords,suggestions,positions){
+        let tempError = ``;
+        let tempCorrect = ``;
+        let pointer = 0;
+        for(let i=0; i<errorWords.length; i++){
 
-            }
-            else{
-                tempError.push(e);
-                tempCorrect.push(e);
-            }
-        });
-        tempError = tempError.join(" ");
-        tempCorrect = tempCorrect.join(" ");
+            tempError = tempError + text.substr(pointer,positions[i]-pointer);
+            tempError = tempError + `<span class="incorrect-word">${text.substr(positions[i],errorWords[i].length)}</span>`
+            tempCorrect = tempCorrect + text.substr(pointer,positions[i]-pointer);
+            tempCorrect = tempCorrect + `<span class="correct-word">${suggestions[i]}</span>`
+            pointer=positions[i]+errorWords[i].length;
+        }
+
+        tempError = tempError + text.substr(pointer);
+        tempCorrect = tempCorrect + text.substr(pointer);
         document.querySelector('.spelling-container #incorrect-text').innerHTML = tempError;
         document.querySelector('.spelling-container #correct-text').innerHTML = tempCorrect;
     }
