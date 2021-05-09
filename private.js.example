@@ -1,0 +1,9 @@
+//NOTE: Rename this file (or it's copy) as 'private.js'.
+/* APIs used JSpell Checker, Text-Processing, Text Analysis from Rapid api platform;
+** NOTE: In order to use all features of project put you API_KEY below and 
+   subscribe to above rapid apis.
+** Without your API_KEY only 'basicInformation' feature will work.
+*/
+
+export const API_KEY = 'YOUR_API_KEY_HERE';
+

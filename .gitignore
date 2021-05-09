@@ -1,1 +1,3 @@
-.vscode
+private.js
+# Local Netlify folder
+.netlify

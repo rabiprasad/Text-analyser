@@ -1,0 +1,127 @@
+/**** result containers *****/
+
+.results {
+  display: none;
+  max-width: 1440px;
+  margin: auto;
+}
+
+/* container heading */
+
+.basic-info-container h1,
+.sentiment-container h1,
+.sentiment-container p,
+.spelling-container,
+.spelling-container p,
+.summary-container {
+  margin: 2px;
+  text-indent: 3%;
+}
+
+.basic-info-container ul {
+  overflow: auto;
+  max-width: 70vw;
+  min-width: 320px;
+}
+
+.basic-info-container ul li {
+  float: left;
+}
+
+/* sentiment analysis */
+
+.sentiment-container p {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.sentiment-container ul li {
+  min-width: 150px;
+  width: 60%;
+  margin: 10px 25px 10px 0px;
+}
+
+.sentiment-container #positive {
+  background: rgb(99, 238, 99);
+}
+
+.sentiment-container #neutral {
+  background: rgb(202, 202, 202);
+}
+
+.sentiment-container #negative {
+  background: rgb(228, 69, 69);
+}
+
+/* spelling-check */
+
+
+.spelling-container fieldset,
+#summary-field {
+  background: white;
+  overflow: auto;
+  position: relative;
+  left: 25px;
+  width: 60vw;
+  height: auto;
+  max-height: 50vh;
+  margin-bottom: 10px;
+}
+
+.incorrect-word {
+  text-decoration: underline;
+  text-decoration-color: red;
+  text-decoration-thickness: 2px;
+}
+
+.correct-word {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgb(16, 179, 16);
+}
+
+/* summary */
+
+.summary-container li {
+  text-indent: 0px;
+}
+
+/* universal css */
+.basic-info-container,
+.sentiment-container,
+.spelling-container, 
+.summary-container {
+    display: none;
+}
+.show-container {
+  display: block;
+}
+
+.oval,
+.basic-info-container ul li {
+  background: white;
+  list-style: none;
+  padding: 5px 10px;
+  margin: 5px 25px 5px 0px;
+  text-transform: capitalize;
+  font-family: var(--font-text);
+  border-radius: 20px;
+}
+
+/* media queries */
+@media (max-width:934px) {
+  .spelling-container fieldset,
+  #summary-field {
+    width: 95%;
+  }
+
+  .sentiment-container ul li {
+    width: 95%;
+  }
+}
+
+@media (max-width:700px){
+  .spelling-container fieldset,
+  #summary-field {
+    left: 5px;
+  }
+}
